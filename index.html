@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostra Tecnológica - Monsenhor Bicudo</title>
+    
+    <!-- Google Fonts: Outfit (Títulos) e Inter (Textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Folha de Estilos Principal -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Scripts do Sistema -->
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- Efeito de Fundo Tecnológico (CSS) -->
+    <div class="tech-background">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Cabeçalho Principal -->
+        <header class="header">
+            <div class="badge">Mostra de Tecnologia 2026</div>
+            <h1 class="title">Vitrine de Projetos</h1>
+            <p class="subtitle">Ensino Médio com Itinerário Técnico em Desenvolvimento de Sistemas</p>
+            <p class="school-name">Escola Estadual Monsenhor Bicudo</p>
+        </header>
+
+        <!-- Painel de Estatísticas -->
+        <section class="stats-panel" aria-label="Estatísticas Rápidas">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span class="stat-title">Total de Alunos</span>
+                </div>
+                <div class="stat-value" id="stat-total-alunos">0</div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: 100%; opacity: 0.8;"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16.5 9.4 7.55 4.24a1.79 1.79 0 0 0-2.5 1.55v12.42a1.79 1.79 0 0 0 2.5 1.55l8.96-5.17a1.79 1.79 0 0 0 0-3.1 structural-data"></path>
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span class="stat-title">Projetos Ativos</span>
+                </div>
+                <div class="stat-value" id="stat-total-projetos">0</div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" id="stat-bar-projetos" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card status-card">
+                <div class="stat-header">
+                    <span class="pulse-indicator"></span>
+                    <span class="stat-title">Status da Mostra</span>
+                </div>
+                <div class="stat-value status-text">ONLINE</div>
+                <p class="stat-footer-text">Exposição Tecnológica Ativa</p>
+            </div>
+        </section>
+
+        <!-- Campo de Busca -->
+        <section class="search-section" aria-label="Busca de Alunos">
+            <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Pesquisar por nome de aluno..." 
+                    autocomplete="off"
+                    aria-label="Pesquisar por nome de aluno"
+                >
+                <button id="clearSearchBtn" class="clear-search-btn" aria-label="Limpar pesquisa" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="search-tip">
+                Passe o mouse ou toque nos cards para revelar o link do projeto.
+            </div>
+        </section>
+
+        <!-- Grid de Cards de Alunos -->
+        <main class="grid-container" id="cardsGrid">
+            <!-- Cards serão inseridos dinamicamente aqui pelo app.js -->
+        </main>
+
+        <!-- Estado Vazio para Busca sem Resultados -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+            </div>
+            <h3>Nenhum desenvolvedor encontrado</h3>
+            <p>Tente buscar por outro nome ou limpe o campo de pesquisa.</p>
+            <button id="resetSearchBtn" class="reset-search-btn">Limpar Busca</button>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <p>&copy; 2026 E.E. Monsenhor Bicudo. Desenvolvido para a Mostra de Tecnologia e Inovação.</p>
+            <p class="tech-stack-info">Tecnologias: HTML5, CSS3 Custom Properties (Variables), JavaScript Vanilla.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
