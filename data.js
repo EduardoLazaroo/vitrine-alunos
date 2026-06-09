@@ -13,9 +13,9 @@
 const ALUNOS_DATA = [
     {
         nome: "BEATRIZ GODOY FAGUNDES",
-        descricao: "Criando interfaces web interativas e responsivas.",
-        link: "#",
-        cor: "card-blue"
+        descricao: ":What comes from below doesn't affect me.",
+        link: "https://site-mu-rose.vercel.app/",
+        cor: "card-purple"
     },
     {
         nome: "DEIVID WILLIANS RODRIGUES GARCIA",
@@ -25,9 +25,9 @@ const ALUNOS_DATA = [
     },
     {
         nome: "EMILLY VITÓRIA BULGARELLI",
-        descricao: "Design de experiência e desenvolvimento frontend.",
-        link: "#",
-        cor: "card-purple"
+        descricao: "Crescendo em fé, vivendo no ritmo do rock e maratonando mistérios.🐴",
+        link: "https://emily-eosin.vercel.app",
+        cor: "card-green"
     },
     {
         nome: "ESTHER ROSSETINI CARVALHO",
@@ -43,20 +43,20 @@ const ALUNOS_DATA = [
     },
     {
         nome: "ISABELY COSTA",
-        descricao: "Modelagem de dados e arquitetura de sistemas.",
-        link: "#",
+        descricao: "A persistência é o caminho do êxito",
+        link: "site-isa-amber.vercel.app",
         cor: "card-blue"
     },
     {
         nome: "ISAQUE NASCIMENTO",
         descricao: "Programação lógica e algoritmos eficientes.",
-        link: "#",
+        link: "https://isaque-alpha.vercel.app/",
         cor: "card-green"
     },
     {
         nome: "JOÃO PEDRO",
-        descricao: "Desenvolvedor Full Stack apaixonado por tecnologia.",
-        link: "#",
+        descricao: "Atleta",
+        link: "https://profile-lime-zeta.vercel.app/",
         cor: "card-purple"
     },
     {
@@ -73,8 +73,8 @@ const ALUNOS_DATA = [
     },
     {
         nome: "LAYSSA NICOLE",
-        descricao: "Desenvolvimento mobile e aplicações modernas.",
-        link: "#",
+        descricao: "Uma mente negativa não lhe dará uma vida positiva. Viva por você 🕉️",
+        link: "https://profile-six-teal.vercel.app/",
         cor: "card-blue"
     },
     {
@@ -85,8 +85,8 @@ const ALUNOS_DATA = [
     },
     {
         nome: "MARIA LUIZA",
-        descricao: "Desenvolvimento de páginas web criativas.",
-        link: "#",
+        descricao: "A paz vem de dentro. Não a procure à sua volta",
+        link: "https://profile-eta-lyart.vercel.app/",
         cor: "card-purple"
     },
     {
@@ -103,26 +103,26 @@ const ALUNOS_DATA = [
     },
     {
         nome: "NYCOLE RODRIGUES",
-        descricao: "Desenvolvimento frontend com HTML, CSS e JavaScript.",
-        link: "#",
-        cor: "card-blue"
+        descricao: "Só preciso insistir mais um pouco e conseguir e estou quase lá!",
+        link: "https://site-nycole.vercel.app/",
+        cor: "card-purple"
     },
     {
         nome: "SALOMÃO DYOGO",
-        descricao: "Explorando inteligência artificial e automação.",
-        link: "#",
+        descricao: "Deus acima de tudo!",
+        link: "https://salomao-six.vercel.app/",
         cor: "card-green"
     },
     {
         nome: "SOFIA RAFAELA",
         descricao: "A vida é bela e o código também.",
-        link: "https://site-da-sofia.com",
-        cor: "card-purple"
+        link: "https://projetos-2-0.vercel.app/",
+        cor: "card-orange"
     },
     {
         nome: "SOFIA REBLIN",
-        descricao: "Focada em desenvolvimento web sustentável.",
-        link: "#",
+        descricao: "Sonha e serás livre de espírito, luta e serás livre na vida.",
+        link: "sunnyboom.vercel.app",
         cor: "card-orange"
     },
     {
