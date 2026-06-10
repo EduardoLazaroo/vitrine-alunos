@@ -37,21 +37,21 @@ const ALUNOS_DATA = [
     },
     {
         nome: "ISABELA CRISTINA GUERRA",
-        descricao: "Desenvolvendo aplicações web com foco em acessibilidade.",
-        link: "#",
-        cor: "card-red"
+        descricao: "O sol, a lua e a verdade",
+        link: "https://isanotess.vercel.app/",
+        cor: "card-blue"
     },
     {
         nome: "ISABELY COSTA",
         descricao: "A persistência é o caminho do êxito",
-        link: "site-isa-amber.vercel.app",
+        link: "https://site-isa-amber.vercel.app",
         cor: "card-blue"
     },
     {
         nome: "ISAQUE NASCIMENTO",
-        descricao: "Programação lógica e algoritmos eficientes.",
+        descricao: "Não tenha medo de errar, tenha medo de não tentar.",
         link: "https://isaque-alpha.vercel.app/",
-        cor: "card-green"
+        cor: "card-blue"
     },
     {
         nome: "JOÃO PEDRO",
@@ -75,7 +75,7 @@ const ALUNOS_DATA = [
         nome: "LAYSSA NICOLE",
         descricao: "Uma mente negativa não lhe dará uma vida positiva. Viva por você 🕉️",
         link: "https://profile-six-teal.vercel.app/",
-        cor: "card-blue"
+        cor: "card-pink"
     },
     {
         nome: "LUCAS CHAVES",
@@ -97,9 +97,9 @@ const ALUNOS_DATA = [
     },
     {
         nome: "NARAYANE EDUARDA",
-        descricao: "Lógica de programação e inovação digital.",
-        link: "#",
-        cor: "card-red"
+        descricao: "Entenda os seus medos, mas jamais deixe que eles sufoquem os seus sonhos",
+        link: "https://pessoall-nara.vercel.app/",
+        cor: "card-purple"
     },
     {
         nome: "NYCOLE RODRIGUES",
@@ -122,14 +122,14 @@ const ALUNOS_DATA = [
     {
         nome: "SOFIA REBLIN",
         descricao: "Sonha e serás livre de espírito, luta e serás livre na vida.",
-        link: "sunnyboom.vercel.app",
+        link: "https://sunnyboom.vercel.app",
         cor: "card-orange"
     },
     {
         nome: "VICTOR HUGO",
         descricao: "Construindo o futuro através das linhas de código.",
-        link: "#",
-        cor: "card-red"
+        link: "https://portfolio-victor-amber.vercel.app/",
+        cor: "card-blue"
     },
     {
         nome: "ZION RIBEIRO",
