@@ -3,6 +3,10 @@
  * Escola Monsenhor Bicudo
  */
 
+// Gerenciamento de Tema Instantâneo (Evita flash de cor na inicialização)
+const initialTheme = localStorage.getItem("theme") || "dark";
+document.documentElement.setAttribute("data-theme", initialTheme);
+
 document.addEventListener("DOMContentLoaded", () => {
     // Referências aos elementos do DOM
     const cardsGrid = document.getElementById("cardsGrid");
@@ -10,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearSearchBtn = document.getElementById("clearSearchBtn");
     const resetSearchBtn = document.getElementById("resetSearchBtn");
     const emptyState = document.getElementById("emptyState");
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
     
     const statTotalAlunos = document.getElementById("stat-total-alunos");
     const statTotalProjetos = document.getElementById("stat-total-projetos");
@@ -29,6 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.addEventListener("input", handleSearch);
         clearSearchBtn.addEventListener("click", clearSearch);
         resetSearchBtn.addEventListener("click", clearSearch);
+        
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener("click", toggleTheme);
+        }
+    }
+
+    /**
+     * Alterna o tema da aplicação entre Claro e Escuro
+     */
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
     }
 
     /**
@@ -146,7 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <span>Em breve...</span>
                                 </button>
                             `}
-                            <span class="back-indicator-text">Toque para voltar</span>
+                            <button class="back-btn" aria-label="Voltar para a frente do card">
+                                <svg class="back-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                </svg>
+                                <span>Voltar</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -155,40 +180,79 @@ document.addEventListener("DOMContentLoaded", () => {
             // Configurar interações avançadas de toque/clique para UX
             const cardInner = cardContainer.querySelector(".card");
             const projectBtn = cardContainer.querySelector(".project-btn");
-            const backIndicator = cardContainer.querySelector(".back-indicator-text");
+            const backBtn = cardContainer.querySelector(".back-btn");
 
-            // No clique do container, vira o card (útil para dispositivos móveis)
-            cardContainer.addEventListener("click", (e) => {
-                // Impede o flip de voltar caso clique no botão de acesso ativo
-                if (projectBtn && projectBtn.contains(e.target)) {
-                    return;
-                }
-                
-                // Toggle do estado "flipped"
-                const isFlipped = cardInner.classList.contains("flipped");
-                
-                // Remove flipped de todos os outros cards para manter apenas um ativo
-                document.querySelectorAll(".card").forEach(c => {
-                    if (c !== cardInner) c.classList.remove("flipped");
+            // Verifica se o dispositivo suporta hover (desktop com mouse)
+            const supportsHover = window.matchMedia("(hover: hover)").matches;
+
+            if (supportsHover) {
+                // Interações baseadas em Hover para Desktop
+                cardContainer.addEventListener("mouseenter", () => {
+                    document.querySelectorAll(".card").forEach(c => {
+                        if (c !== cardInner) c.classList.remove("flipped");
+                    });
+                    cardInner.classList.add("flipped");
                 });
-                
-                cardInner.classList.toggle("flipped");
-            });
 
-            // Permite virar o card de volta clicando no texto informativo do verso
-            if (backIndicator) {
-                backIndicator.addEventListener("click", (e) => {
-                    e.stopPropagation(); // Evita re-trigger do container click
+                cardContainer.addEventListener("mouseleave", () => {
                     cardInner.classList.remove("flipped");
                 });
+
+                if (backBtn) {
+                    backBtn.addEventListener("click", (e) => {
+                        e.stopPropagation(); // Evita re-trigger
+                        cardInner.classList.remove("flipped");
+                    });
+                }
+            } else {
+                // Interações baseadas em Clique para Mobile/Touch
+                cardContainer.addEventListener("click", (e) => {
+                    // Impede o flip caso clique no botão de acesso ativo ou no botão de voltar
+                    if (projectBtn && projectBtn.contains(e.target)) {
+                        return;
+                    }
+                    if (backBtn && backBtn.contains(e.target)) {
+                        return;
+                    }
+                    
+                    // Toggle do estado "flipped"
+                    const isFlipped = cardInner.classList.contains("flipped");
+                    
+                    // Remove flipped de todos os outros cards para manter apenas um ativo
+                    document.querySelectorAll(".card").forEach(c => {
+                        if (c !== cardInner) c.classList.remove("flipped");
+                    });
+                    
+                    if (isFlipped) {
+                        cardInner.classList.remove("flipped");
+                    } else {
+                        cardInner.classList.add("flipped");
+                    }
+                });
+
+                if (backBtn) {
+                    backBtn.addEventListener("click", (e) => {
+                        e.stopPropagation(); // Evita re-trigger do container click
+                        cardInner.classList.remove("flipped");
+                    });
+                }
             }
 
-            // Suporte para teclas Enter/Espaço no foco do teclado (Acessibilidade)
+            // Suporte para teclas Enter/Espaço e navegação por teclado (Acessibilidade)
+            cardContainer.addEventListener("focusin", () => {
+                cardInner.classList.add("flipped");
+            });
+
+            cardContainer.addEventListener("focusout", (e) => {
+                if (!cardContainer.contains(e.relatedTarget)) {
+                    cardInner.classList.remove("flipped");
+                }
+            });
+
             cardContainer.addEventListener("keydown", (e) => {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     if (projectBtn && cardInner.classList.contains("flipped") && e.key === "Enter") {
-                        // Se já estiver virado e focado, foca e clica no botão do projeto
                         projectBtn.click();
                     } else {
                         cardInner.classList.toggle("flipped");
