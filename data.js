@@ -13,13 +13,13 @@
 const ALUNOS_DATA = [
     {
         nome: "BEATRIZ GODOY FAGUNDES",
-        descricao: ":What comes from below doesn't affect me.",
+        descricao: "What comes from below doesn't affect me.",
         link: "https://site-mu-rose.vercel.app/",
         cor: "card-purple"
     },
     {
         nome: "DEIVID WILLIANS RODRIGUES GARCIA",
-        descricao: "Explorando o desenvolvimento backend e APIs robustas.",
+        descricao: "Hi",
         link: "#",
         cor: "card-green"
     },
@@ -32,7 +32,7 @@ const ALUNOS_DATA = [
     {
         nome: "ESTHER ROSSETINI CARVALHO",
         descricao: "Focada em soluções criativas e código limpo.",
-        link: "#",
+        link: "https://profile-esther.vercel.app/",
         cor: "card-orange"
     },
     {
@@ -67,20 +67,20 @@ const ALUNOS_DATA = [
     },
     {
         nome: "LAURA RODRIGUES",
-        descricao: "UI/UX Designer apaixonada por layouts inovadores.",
-        link: "#",
+        descricao: "Nós escolhemos o nosso próprio caminho, os nossos valores e nossas ações, eles definem quem nós somos",
+        link: "https://laurinhadiario.vercel.app/",
         cor: "card-red"
     },
     {
         nome: "LAYSSA NICOLE",
         descricao: "Uma mente negativa não lhe dará uma vida positiva. Viva por você 🕉️",
         link: "https://profile-six-teal.vercel.app/",
-        cor: "card-pink"
+        cor: "card-red"
     },
     {
         nome: "LUCAS CHAVES",
         descricao: "Segurança da informação e redes de computadores.",
-        link: "#",
+        link: "https://eulucas.vercel.app/",
         cor: "card-green"
     },
     {
@@ -92,7 +92,7 @@ const ALUNOS_DATA = [
     {
         nome: "MARIANA DEL VALLE",
         descricao: "Análise de sistemas e banco de dados relacional.",
-        link: "#",
+        link: "https://mora-cyan.vercel.app/",
         cor: "card-orange"
     },
     {
